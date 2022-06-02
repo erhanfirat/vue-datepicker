@@ -6,7 +6,6 @@
       :value="value"
       :placeholder="placeholder || '请选择开始'"
       :secondPlaceholder="secondPlaceholder || '请选择结束'"
-      :readonly="!canEdit || isMobile"
       :inputStyle="inputStyle"
       :rangeSeparator="rangeSeparator"
       :isFocus="showPicker"

@@ -9,10 +9,10 @@
       :id="id"
       :value="value[0]"
       :placeholder="placeholder || '请选择开始'"
-      :readonly="readonly"
       :style="inputStyle"
       @keyup.enter="$emit('inputEnter', $event)"
       @focus="$emit('focus', 0)"
+      readonly
     />
     <div v-if="isRange" class="range-separator">
       {{ rangeSeparator || '至' }}
@@ -23,10 +23,10 @@
       ref="input1"
       :value="value[1]"
       :placeholder="secondPlaceholder || '请选择结束'"
-      :readonly="readonly"
       :style="inputStyle"
       @keyup.enter="$emit('inputEnter', $event)"
       @focus="$emit('focus', 1)"
+      readonly
     />
     <div class="suffix">
       <slot name="suffix" />
@@ -52,7 +52,6 @@ export default {
     dayStr: Array,
     firstDayOfWeek: Number,
     rangeSeparator: String,
-    readonly: Boolean,
     isFocus: Boolean,
     isRange: Boolean,
   },

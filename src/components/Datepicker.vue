@@ -5,7 +5,6 @@
       :id="id"
       :value="[value]"
       :placeholder="placeholder || '请选择日期'"
-      :readonly="!canEdit || isMobile"
       :inputStyle="inputStyle"
       :rangeSeparator="rangeSeparator"
       :isFocus="showPicker"
