@@ -8,6 +8,9 @@ $shadow: rgba(0, 0, 0, 0.1);
 $base-size: 10px;
 $picker-bg: #fff;
 $bg: $picker-bg;
+$disabled-bg: #f7fafc;
+$disabled-border: #e2e8f0;
+$disabled-color: #718096;
 
 @function size($val) {
   @return $val * $base-size;
@@ -27,6 +30,25 @@ $picker-item-selected-before-height: size(2.4);
   font-size: size(1.4);
   color: $black;
   user-select: none;
+
+  &.disabled {
+    color: $disabled-color;
+
+    .input-wrapper {
+      background-color: $disabled-bg;
+      border-color: $disabled-border;
+      input {
+        background-color: $disabled-bg;
+        color: $disabled-color;
+      }
+
+      &.focus {
+        border-color: $disabled-border;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+  }
 
   /* scrollbar css */
   .scrollbar-wrap {
