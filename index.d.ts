@@ -143,7 +143,11 @@ declare class Timepicker extends CommonProps {
    * */
   btnStr?: string
 
+  hourStep?: number
+
   minuteStep?: number
+
+  secondStep?: number
 }
 
 declare class DatetimePicker extends CommonProps {
@@ -187,7 +191,11 @@ declare class DatetimePicker extends CommonProps {
    * */
   timeType?: string
 
+  hourStep?: number
+
   minuteStep?: number
+
+  secondStep?: number
 }
 
 /**
