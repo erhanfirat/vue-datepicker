@@ -46,6 +46,8 @@ declare class CommonProps extends Vue {
    * Default to: { isMobile: false, maxHeight: 200 }
    * */
   scrollbarProps?: VueScrollbarProps
+
+  minuteStep?: number
 }
 
 declare class Datepicker extends CommonProps {
