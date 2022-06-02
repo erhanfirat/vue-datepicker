@@ -22,6 +22,10 @@ export default {
     inputStyle: [String, Object],
     popperProps: Object,
     scrollbarProps: Object,
+    clearButton: {
+      default: true,
+      type: Boolean,
+    },
   },
   data() {
     return {

@@ -28,7 +28,7 @@
       @focus="$emit('focus', 1)"
       readonly
     />
-    <div class="suffix">
+    <div class="suffix" v-if="clearButton && canEdit">
       <slot name="suffix" />
       <div ref="clear" class="icon-clear" @click="$emit('clear')">
         <icon-del />
@@ -54,6 +54,8 @@ export default {
     rangeSeparator: String,
     isFocus: Boolean,
     isRange: Boolean,
+    clearButton: Boolean,
+    canEdit: Boolean,
   },
   components: { IconDel },
 }

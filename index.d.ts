@@ -46,6 +46,8 @@ declare class CommonProps extends Vue {
    * Default to: { isMobile: false, maxHeight: 200 }
    * */
   scrollbarProps?: VueScrollbarProps
+
+  clearButton?: boolean
 }
 
 declare class Datepicker extends CommonProps {

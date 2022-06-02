@@ -9,6 +9,8 @@
       :inputStyle="inputStyle"
       :rangeSeparator="rangeSeparator"
       :isFocus="showPicker"
+      :clearButton="clearButton"
+      :canEdit="canEdit"
       :isRange="true"
       @inputEnter="inputEnter"
       @clear="onClear"

@@ -7,6 +7,8 @@
       :placeholder="placeholder || '请选择时间'"
       :inputStyle="inputStyle"
       :rangeSeparator="rangeSeparator"
+      :clearButton="clearButton"
+      :canEdit="canEdit"
       :isFocus="showPicker"
       @inputEnter="inputEnter"
       @clear="onClear"
