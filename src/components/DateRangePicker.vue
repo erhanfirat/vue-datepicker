@@ -22,8 +22,7 @@
       <slot name="suffix" slot="suffix" />
     </input-el>
     <popper
-      v-if="canEdit"
-      v-show="showPicker"
+      v-show="showPicker && canEdit"
       class="picker range-picker"
       :referenceElm="$refs.wrap"
       :popperOptions="$popperProps.popperOptions"

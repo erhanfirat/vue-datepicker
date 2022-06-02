@@ -19,8 +19,7 @@
       <slot name="suffix" slot="suffix" />
     </input-el>
     <popper
-      v-if="canEdit"
-      v-show="showPicker"
+      v-show="showPicker && canEdit"
       class="picker"
       :referenceElm="$refs.wrap"
       :popperOptions="$popperProps.popperOptions"
@@ -197,7 +196,7 @@ export default {
     timeChange() {
       this.$nextTick(() => {
         const { timePin0, datePin0 } = this.$refs
-        if (this.timeObj) {
+        if (this.timeObj && timePin0 && datePin0) {
           timePin0.timeObj = formatTimeObj({ ...this.timeObj })
           datePin0.$refs.dateCom.dateObj = formatDateObj({ ...this.timeObj })
         }
