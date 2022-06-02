@@ -22,10 +22,6 @@ export default {
     inputStyle: [String, Object],
     popperProps: Object,
     scrollbarProps: Object,
-    minuteStep: {
-      type: Number,
-      default: 1,
-    },
   },
   data() {
     return {

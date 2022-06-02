@@ -41,16 +41,16 @@ import VueScrollbar from 'vue-scrollbar-live'
 import {
   fillTo,
   getHour,
-  // getMinute,
+  getMinute,
   getSecond,
 } from '@livelybone/date-generator'
 import { createNowTimeObj, formatTimeObj, timeCompare } from './utils'
 
-const getMinuteNumbers = ({ min, max, step }) => {
-  const result = []
-  for (let i = 0; i <= max; i + step) {
-    if (i >= min) {
-      result.push(i)
+const getMinuteByStep = (minutes, step) => {
+  const result = [...minutes]
+  for (let i = minutes.length - 1; i >= 0; i - 1) {
+    if (parseInt(minutes[i].value, 10) % step !== 0) {
+      result.splice(i, 1)
     }
   }
   return result
@@ -97,13 +97,17 @@ export default {
       })
     },
     minutes() {
-      return getMinuteNumbers({
-        min:
-          +this.timeObj.hour === +this.minTime.hour ? this.minTime.minute : 0,
-        max:
-          +this.timeObj.hour === +this.maxTime.hour ? this.maxTime.minute : 59,
-        step: this.minuteStep,
-      })
+      return getMinuteByStep(
+        getMinute({
+          min:
+            +this.timeObj.hour === +this.minTime.hour ? this.minTime.minute : 0,
+          max:
+            +this.timeObj.hour === +this.maxTime.hour
+              ? this.maxTime.minute
+              : 59,
+        }),
+        this.minuteStep,
+      )
     },
     seconds() {
       return getSecond({

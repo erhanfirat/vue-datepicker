@@ -14,4 +14,3 @@ yarn.lock
 *.njsproj
 *.sln
 
-/coverage/
