@@ -1,5 +1,5 @@
 <template>
-  <div class="timepicker" ref="wrap">
+  <div class="timepicker" :class="{ disabled: !canEdit }" ref="wrap">
     <input-el
       ref="inputEl"
       :id="id"

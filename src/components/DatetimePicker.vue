@@ -1,5 +1,5 @@
 <template>
-  <div class="datetime-picker" ref="wrap">
+  <div class="datetime-picker" :class="{ disabled: !canEdit }" ref="wrap">
     <input-el
       ref="inputEl"
       :id="id"

@@ -1,5 +1,5 @@
 <template>
-  <div class="date-range-picker" ref="wrap">
+  <div class="date-range-picker" :class="{ disabled: !canEdit }" ref="wrap">
     <input-el
       ref="inputEl"
       :id="id"
