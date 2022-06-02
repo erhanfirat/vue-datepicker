@@ -49,7 +49,9 @@
           :minTime="limit.minTime"
           :maxTime="limit.maxTime"
           :timeStr="timeStr"
+          :hourStep="hourStep"
           :minuteStep="minuteStep"
+          :secondStep="secondStep"
           @chose="chose({ value: $event })"
         />
         <div class="btns" slot="btn">
@@ -94,7 +96,18 @@ export default {
     timeStr: Array,
     btnStr: String,
     timeType: String, // hour, minute, second. default: second,
-    minuteStep: Number,
+    hourStep: {
+      type: Number,
+      default: 1,
+    },
+    minuteStep: {
+      type: Number,
+      default: 1,
+    },
+    secondStep: {
+      type: Number,
+      default: 1,
+    },
   },
   data() {
     return {

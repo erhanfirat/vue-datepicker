@@ -20,18 +20,20 @@
       :marginToWrap="$scrollbarProps.marginToWrap"
       :scrollTo="scrollTo[i]"
     >
-      <span
-        v-for="(item, j) in rowItems"
-        class="item"
-        :class="{
-          disabled: !item.canBeChose,
-          [i]: true,
-          selected: isSelected(item, i),
-        }"
-        :key="i + '' + j"
-        @click="chose(item, i)"
-        >{{ item.value }}</span
-      >
+      <template v-for="(item, j) in rowItems">
+        <span
+          v-if="checkTimeListItemVisible(i, item.value)"
+          class="item"
+          :class="{
+            disabled: !item.canBeChose,
+            [i]: true,
+            selected: isSelected(item, i),
+          }"
+          :key="i + '' + j"
+          @click="chose(item, i)"
+          >{{ item.value }}</span
+        >
+      </template>
     </scrollbar>
   </div>
 </template>
@@ -46,16 +48,6 @@ import {
 } from '@livelybone/date-generator'
 import { createNowTimeObj, formatTimeObj, timeCompare } from './utils'
 
-const getMinuteByStep = (minutes, step) => {
-  const result = [...minutes]
-  for (let i = minutes.length - 1; i >= 0; i - 1) {
-    if (parseInt(minutes[i].value, 10) % step !== 0) {
-      result.splice(i, 1)
-    }
-  }
-  return result
-}
-
 export default {
   name: 'Time',
   props: {
@@ -65,7 +57,9 @@ export default {
     minTime: Object,
     maxTime: Object,
     timeStr: Array,
+    hourStep: Number,
     minuteStep: Number,
+    secondStep: Number,
   },
   data() {
     return {
@@ -97,17 +91,12 @@ export default {
       })
     },
     minutes() {
-      return getMinuteByStep(
-        getMinute({
-          min:
-            +this.timeObj.hour === +this.minTime.hour ? this.minTime.minute : 0,
-          max:
-            +this.timeObj.hour === +this.maxTime.hour
-              ? this.maxTime.minute
-              : 59,
-        }),
-        this.minuteStep,
-      )
+      return getMinute({
+        min:
+          +this.timeObj.hour === +this.minTime.hour ? this.minTime.minute : 0,
+        max:
+          +this.timeObj.hour === +this.maxTime.hour ? this.maxTime.minute : 59,
+      })
     },
     seconds() {
       return getSecond({
@@ -199,6 +188,9 @@ export default {
     },
     isSelected(item, type) {
       return this.selectedTime && this.selectedTime[type] === item.value
+    },
+    checkTimeListItemVisible(type, value) {
+      return parseInt(value, 10) % this[`${type}Step`] === 0
     },
   },
   components: { scrollbar: VueScrollbar },
