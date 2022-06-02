@@ -1,8 +1,8 @@
 $black: #444;
 $black-light: #999;
 $black-lighter: #ccc;
-$main: #39c086;
-$main-hover: #39c086;
+$main: #277dce;
+$main-hover: #236aaf;
 $border: #c2ccdc;
 $shadow: rgba(0, 0, 0, 0.1);
 $base-size: 10px;
@@ -64,8 +64,9 @@ $picker-item-selected-before-height: size(2.4);
     border-radius: size(0.3);
 
     &.focus {
-      border-color: rgba($main, 0.7);
-      box-shadow: 0 0 1px rgba($main, 0.3);
+      border-color: #63b3ed;
+      -webkit-box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
     }
 
     &.focus,
