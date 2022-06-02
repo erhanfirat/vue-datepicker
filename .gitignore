@@ -15,4 +15,3 @@ yarn.lock
 *.sln
 
 /coverage/
-/lib/
