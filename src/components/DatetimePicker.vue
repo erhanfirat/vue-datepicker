@@ -49,6 +49,7 @@
           :minTime="limit.minTime"
           :maxTime="limit.maxTime"
           :timeStr="timeStr"
+          :minuteStep="minuteStep"
           @chose="chose({ value: $event })"
         />
         <div class="btns" slot="btn">
@@ -92,7 +93,8 @@ export default {
     firstDayOfWeek: Number,
     timeStr: Array,
     btnStr: String,
-    timeType: String, // hour, minute, second. default: second
+    timeType: String, // hour, minute, second. default: second,
+    minuteStep: Number,
   },
   data() {
     return {

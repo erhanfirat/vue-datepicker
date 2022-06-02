@@ -35,6 +35,7 @@
           :maxTime="limit.maxTime"
           :timeStr="timeStr"
           :scrollbarProps="scrollbarProps"
+          :minuteStep="minuteStep"
           @chose="chose"
         />
         <div class="btns">
@@ -65,6 +66,7 @@ export default {
     type: String,
     timeStr: Array,
     btnStr: String,
+    minuteStep: Number,
   },
   data() {
     return {
