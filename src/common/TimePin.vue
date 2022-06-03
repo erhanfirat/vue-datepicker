@@ -18,7 +18,6 @@
       :isMobile="$scrollbarProps.isMobile"
       :maxHeight="$scrollbarProps.maxHeight"
       :marginToWrap="$scrollbarProps.marginToWrap"
-      :scrollTo="scrollTo[i]"
     >
       <template v-for="(item, j) in rowItems">
         <span
@@ -125,13 +124,6 @@ export default {
       if (this.myType === 'minute') return { width: 'calc(100% / 2)' }
       return { width: 'calc(99% / 3)' }
     },
-    scrollTo() {
-      return {
-        hour: (this.timeObj.hour - 1) / 22,
-        minute: (this.timeObj.minute - 1) / 58,
-        second: (this.timeObj.second - 1) / 58,
-      }
-    },
   },
   watch: {
     'timeObj.hour': {
@@ -176,15 +168,6 @@ export default {
         }
         this.timeObj = { ...this.timeObj }
       }
-    },
-    correctScroll() {
-      setTimeout(() => {
-        Object.keys(this.scrollTo).forEach((k, i) => {
-          if (this.$refs.scrollbar[i]) {
-            this.$refs.scrollbar[i].$scrollTo(this.scrollTo[k])
-          }
-        })
-      })
     },
     isSelected(item, type) {
       return this.selectedTime && this.selectedTime[type] === item.value
