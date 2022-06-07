@@ -77,11 +77,10 @@
         // ' type="year"' +
         // ' :multiple="true"' +
         ' :dayStr="dayStr"' +
-        ' :canEdit="false"' +
+        ' :canEdit="true"' +
         ' :monthStr="monthStr"' +
         ' :popperProps="popperProps"' +
         ' :scrollbarProps="{isMobile:isM}"' +
-        ' :canEdit="false"' +
         ' :firstDayOfWeek="1"/>',
       data: function () {
         return {
@@ -140,15 +139,17 @@
         ' :value="time"' +
         ' @input="log"' +
         ' @error="log"' +
-        ' min="02:10:02"' +
-        ' max="22:10:00"' +
+        ' min="02:10"' +
+        ' max="22:10"' +
+        ' :hour12="false"' +
+        ' time-type="minute"' +
         ' :timeStr="timeStr"' +
         ' :scrollbarProps="{isMobile:isM}"' +
         ' :popperProps="popperProps"/>',
       data: function () {
         return {
           timeStr: ['hour', 'min', 'sec'],
-          time: '03:02:01',
+          time: '03:02',
           isM: isM,
           popperProps: popperProps,
         }

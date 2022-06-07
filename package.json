@@ -1,6 +1,6 @@
 {
   "name": "@livelybone/vue-datepicker",
-  "version": "4.1.6",
+  "version": "4.1.7",
   "description": "A vue component of datepicker, includes DatePicker, DateRangePicker, DatetimePicker, DateRangePicker, TimePicker",
   "main": "./lib/umd/index.js",
   "module": "./lib/es/index.js",
@@ -43,6 +43,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@babel/runtime": "^7.5.1",
     "@livelybone/singleton": "^1.1.1",
+    "@types/luxon": "^2.3.2",
     "@typescript-eslint/eslint-plugin": "^1.12.0",
     "@typescript-eslint/parser": "^1.11.0",
     "@vue/test-utils": "^1.0.0-beta.19",
@@ -95,6 +96,7 @@
     "@livelybone/copy": "^2.6.3",
     "@livelybone/date-generator": "^4.2.1",
     "@livelybone/vue-popper": "^2.4.0",
+    "luxon": "^1.24.1",
     "vue-scrollbar-live": "^5.7.1"
   },
   "config": {

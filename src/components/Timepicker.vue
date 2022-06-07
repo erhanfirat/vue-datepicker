@@ -10,7 +10,9 @@
       :clearButton="clearButton"
       :canEdit="canEdit"
       :isFocus="showPicker"
-      @inputEnter="inputEnter"
+      :hour12="hour12"
+      :dataType="'time'"
+      :timeType="myType"
       @clear="onClear"
     >
       <slot name="prefix" slot="prefix">
@@ -30,7 +32,7 @@
         <time-pin
           ref="timePin0"
           :selectedTime="timeObj"
-          :type="type"
+          :type="myType"
           :minTime="limit.minTime"
           :maxTime="limit.maxTime"
           :timeStr="timeStr"
@@ -65,7 +67,10 @@ export default {
   mixins: [mixin],
   name: 'Timepicker',
   props: {
-    type: String,
+    timeType: {
+      type: String,
+      default: 'second',
+    }, // hour, minute, second. default: second,
     timeStr: Array,
     btnStr: String,
     hourStep: {
@@ -80,6 +85,10 @@ export default {
       type: Number,
       default: 1,
     },
+    hour12: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
@@ -88,7 +97,9 @@ export default {
   },
   computed: {
     myType() {
-      return /^(hour|minute|second)$/.test(this.type) ? this.type : 'second'
+      return /^(hour|minute|second)$/.test(this.timeType)
+        ? this.timeType
+        : 'second'
     },
     $btnStr() {
       return this.btnStr || '确定'
@@ -142,7 +153,6 @@ export default {
         const time = parseTime(value)
         const { minTime, maxTime } = this.limit
         const error = timeValidator(time, this.type, minTime, maxTime)
-
         if (error) {
           this.$emit('error', new Error(error))
           this.timeObj = null

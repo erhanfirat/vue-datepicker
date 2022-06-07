@@ -11,6 +11,7 @@
       :isFocus="showPicker"
       :clearButton="clearButton"
       :canEdit="canEdit"
+      :dataType="'date'"
       :isRange="true"
       @inputEnter="inputEnter"
       @clear="onClear"

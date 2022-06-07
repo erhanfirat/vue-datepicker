@@ -10,6 +10,9 @@
       :clearButton="clearButton"
       :canEdit="canEdit"
       :isFocus="showPicker"
+      :hour12="hour12"
+      :timeType="timeType"
+      :dataType="'datetime'"
       @inputEnter="inputEnter"
       @clear="onClear"
     >
@@ -95,7 +98,10 @@ export default {
     firstDayOfWeek: Number,
     timeStr: Array,
     btnStr: String,
-    timeType: String, // hour, minute, second. default: second,
+    timeType: {
+      type: String,
+      default: 'second',
+    }, // hour, minute, second. default: second,
     hourStep: {
       type: Number,
       default: 1,
@@ -107,6 +113,10 @@ export default {
     secondStep: {
       type: Number,
       default: 1,
+    },
+    hour12: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {

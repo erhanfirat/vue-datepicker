@@ -126,15 +126,30 @@ $picker-item-selected-before-height: size(2.4);
     height: 1em;
   }
 
-  .vue-input {
+  .input-el-wrapper {
+    position: relative;
     display: block;
     height: 100%;
     flex: 1;
     padding: 0;
-    border: none;
+    label {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      display: flex;
+      align-items: center;
+    }
+    .vue-input {
+      border: none;
+      visibility: hidden;
+      width: 0px;
+      height: 0px;
 
-    &::placeholder {
-      color: $black-lighter;
+      &::placeholder {
+        color: $black-lighter;
+      }
     }
   }
 
@@ -335,5 +350,6 @@ $picker-item-selected-before-height: size(2.4);
 .date-range-picker {
   .vue-input {
     text-align: center;
+    visibility: hidden;
   }
 }
