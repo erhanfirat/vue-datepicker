@@ -127,19 +127,13 @@ $picker-item-selected-before-height: size(2.4);
   }
 
   .input-el-wrapper {
-    position: relative;
-    display: block;
+    display: flex;
+    align-items: center;
     height: 100%;
     flex: 1;
     padding: 0;
     label {
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
-      display: flex;
-      align-items: center;
+      font-weight: normal;
     }
     .vue-input {
       border: none;

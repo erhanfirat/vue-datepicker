@@ -38,9 +38,14 @@
         readonly
       />
     </div>
-    <div class="suffix" v-if="clearButton && canEdit">
+    <div class="suffix">
       <slot name="suffix" />
-      <div ref="clear" class="icon-clear" @click="$emit('clear')">
+      <div
+        ref="clear"
+        class="icon-clear"
+        @click="$emit('clear')"
+        v-if="clearButton && canEdit"
+      >
         <icon-del />
       </div>
     </div>
