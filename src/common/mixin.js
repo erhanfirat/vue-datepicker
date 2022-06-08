@@ -60,6 +60,7 @@ export default {
   watch: {
     showPicker(val) {
       if (!val) this.hideEffect()
+      this.$emit('showPicker', val)
     },
   },
   methods: {

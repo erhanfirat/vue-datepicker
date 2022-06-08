@@ -139,6 +139,7 @@
         ' :value="time"' +
         ' @input="log"' +
         ' @error="log"' +
+        ' @showPicker="pickerEffect"' +
         ' min="02:10"' +
         ' max="22:10"' +
         ' :hour12="false"' +
@@ -159,6 +160,9 @@
           this.time = val
           console.log(val)
         },
+        pickerEffect: function (val) {
+          console.log("picker effect ********** ", val)
+        }
       },
       components: { 'timepicker': VueDatepicker.Timepicker },
     })
