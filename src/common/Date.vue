@@ -104,11 +104,17 @@ export default {
     },
     years() {
       if (!this.dateObj.year) return []
-      return gntYear(Math.floor(this.dateObj.year / 10 - 0.5) * 10 + 1, 10, {
-        splitLen: 3,
-        min: this.minDate.year,
-        max: this.maxDate.year,
-      })
+      return gntYear(
+        this.dateObj.year -
+          (this.dateObj.year % 10) +
+          (this.dateObj.year % 10 > 0 ? 1 : 0),
+        10,
+        {
+          splitLen: 3,
+          min: this.minDate.year,
+          max: this.maxDate.year,
+        },
+      )
     },
     months() {
       return gntMonth(this.dateObj.year, {

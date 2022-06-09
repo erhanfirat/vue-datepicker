@@ -1,12 +1,13 @@
 <template>
   <div class="picker-content">
     <div class="picker-head">
-      <!-- <span
+      <span
+        v-if="currType !== 'time'"
         class="prev"
         :class="{ disabled: !showBtn.prev }"
         @click="showBtn.prev ? $refs.dateCom.to(-1) : ''"
         >&lt;</span
-      > -->
+      >
       <span class="picker-h">
         <span
           v-if="currType !== 'year'"
@@ -28,12 +29,13 @@
           }}</span>
         </template></span
       >
-      <!-- <span
+      <span
+        v-if="currType !== 'time'"
         class="next"
         :class="{ disabled: !showBtn.next }"
         @click="showBtn.next ? $refs.dateCom.to(1) : ''"
         >&gt;</span
-      > -->
+      >
     </div>
     <date
       v-show="currType !== 'time'"
