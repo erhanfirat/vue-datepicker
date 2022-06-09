@@ -31,9 +31,9 @@
           :key="i + '' + j"
           @click="chose(item, i)"
         >
-          <template v-if="item.meridiem">
-            {{ item.value }}
-            {{ item.meridiem }}
+          <template v-if="i === 'hour' && hour12">
+            {{ formatHour12(item.value) }}
+            <span class="meridiem">{{ meridiemOfHour(item.value) }}</span>
           </template>
           <template v-else>
             {{ item.value }}
@@ -92,13 +92,10 @@ export default {
       return arr.slice(0, 3)
     },
     hours() {
-      return this.convert12hFormat(
-        getHour({
-          min: this.minTime.hour,
-          max: this.maxTime.hour,
-        }),
-        this.hour12,
-      )
+      return getHour({
+        min: this.minTime.hour,
+        max: this.maxTime.hour,
+      })
     },
     minutes() {
       return getMinute({
@@ -186,13 +183,12 @@ export default {
     checkTimeListItemVisible(type, value) {
       return parseInt(value, 10) % this[`${type}Step`] === 0
     },
-    convert12hFormat(hours, hour12format) {
-      if (hour12format) {
-        for (let i = 0; i < hours.length; i + 1) {
-          hours[i].meridiem = parseInt(hours[i].value, 10) > 12 ? 'pm' : 'am'
-        }
-      }
-      return hours
+    formatHour12(hour) {
+      if (parseInt(hour, 10) === 12) return 12
+      return hour % 12
+    },
+    meridiemOfHour(hour) {
+      return hour >= 12 ? 'PM' : 'AM'
     },
   },
   components: { scrollbar: VueScrollbar },

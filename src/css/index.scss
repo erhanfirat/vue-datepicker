@@ -222,6 +222,11 @@ $picker-item-selected-before-height: size(2.4);
           .item {
             width: 100%;
             display: block;
+
+            .meridiem {
+              font-size: size(0.85);
+              opacity: 0.75;
+            }
           }
         }
 
