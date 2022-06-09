@@ -236,6 +236,7 @@ $picker-item-selected-before-height: size(2.4);
           padding: 0 size(0.8);
           text-align: center;
           cursor: pointer;
+          transition: 0.3s;
 
           &.date {
             width: calc(100% / 7);
@@ -252,10 +253,9 @@ $picker-item-selected-before-height: size(2.4);
 
           &.not-in-month {
             color: $black-light !important;
-            transition: 0.5s;
           }
           &.not-in-month:hover {
-            color: $black !important;
+            color: $main-hover !important;
           }
 
           &.disabled {
