@@ -184,7 +184,7 @@ export default {
       return parseInt(value, 10) % this[`${type}Step`] === 0
     },
     formatHour12(hour) {
-      if (parseInt(hour, 10) === 12) return 12
+      if (parseInt(hour, 10) === 12 || parseInt(hour, 10) === 0) return 12
       return hour % 12
     },
     meridiemOfHour(hour) {
