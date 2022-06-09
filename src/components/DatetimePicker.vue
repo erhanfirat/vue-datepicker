@@ -54,6 +54,7 @@
           :timeStr="timeStr"
           :hourStep="hourStep"
           :minuteStep="minuteStep"
+          :hour12="hour12"
           :secondStep="secondStep"
           @chose="chose({ value: $event })"
         />
