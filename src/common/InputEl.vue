@@ -135,7 +135,7 @@ export default {
 
         if (result.indexOf('Invalid') > -1) result = value
       }
-      return result
+      return result.toUpperCase()
     },
   },
 }
