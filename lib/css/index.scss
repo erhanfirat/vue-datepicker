@@ -250,7 +250,14 @@ $picker-item-selected-before-height: size(2.4);
             color: $main-hover;
           }
 
-          &.not-in-month,
+          &.not-in-month {
+            color: $black-light !important;
+            transition: 0.5s;
+          }
+          &.not-in-month:hover {
+            color: $black !important;
+          }
+
           &.disabled {
             color: $black-lighter !important;
 
