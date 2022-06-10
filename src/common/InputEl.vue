@@ -95,30 +95,26 @@ export default {
 
       if (this.dataType === 'time' || this.dataType === 'datetime') {
         dataFormat += this.dataType === 'datetime' ? ' ' : ''
-        if (this.timeType === 'hour') {
+        localeSettings = {
+          ...localeSettings,
+          hour: '2-digit',
+          hourCycle: this.hour12 ? 'h12' : 'h23',
+        }
+        dataFormat += 'hh'
+
+        if (this.timeType === 'minute') {
           localeSettings = {
             ...localeSettings,
-            hour: '2-digit',
-            hour12: this.hour12,
-          }
-          dataFormat += 'hh'
-        } else if (this.timeType === 'minute') {
-          localeSettings = {
-            ...localeSettings,
-            hour: '2-digit',
             minute: '2-digit',
-            hour12: this.hour12,
           }
-          dataFormat += 'hh:mm'
+          dataFormat += ':mm'
         } else if (this.timeType === 'second') {
           localeSettings = {
             ...localeSettings,
-            hour: '2-digit',
             minute: '2-digit',
             second: '2-digit',
-            hour12: this.hour12,
           }
-          dataFormat += 'hh:mm:ss'
+          dataFormat += ':mm:ss'
         }
       }
       return { dataFormat, localeSettings }
