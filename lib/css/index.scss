@@ -37,13 +37,10 @@ $picker-item-selected-before-height: size(2.4);
     .input-wrapper {
       background-color: $disabled-bg;
       border-color: $disabled-border;
-      input {
+      input,
+      .input-el-wrapper > label {
         background-color: $disabled-bg;
         color: $disabled-color;
-      }
-
-      .experiment-date-time-picker {
-        color: $black-light;
       }
 
       &.focus {
