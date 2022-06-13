@@ -42,6 +42,10 @@ $picker-item-selected-before-height: size(2.4);
         color: $disabled-color;
       }
 
+      .experiment-date-time-picker {
+        color: $black-light;
+      }
+
       &.focus {
         border-color: $disabled-border;
         -webkit-box-shadow: none;
@@ -84,6 +88,7 @@ $picker-item-selected-before-height: size(2.4);
     height: 100%;
     border: 1px solid $border;
     border-radius: size(0.3);
+    background: $bg;
 
     &.focus {
       border-color: #63b3ed;
